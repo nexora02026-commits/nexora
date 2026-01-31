@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEXORA - About</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      .page-wrapper {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        background: var(--primary);
+        color: var(--white);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        flex-wrap: wrap;
+      }
+      header .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      header nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      header nav ul li a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.3s;
+        padding: 0.3rem 0.5rem;
+      }
+      header nav ul li a:hover,
+      header nav ul li a.active {
+        color: var(--accent);
+      }
+
+      .hero {
+        height: 30vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: var(--white);
+        padding: 0 1rem;
+      }
+      .hero h1 {
+        font-size: 2.8rem;
+        margin-bottom: 0.5rem;
+      }
+      .hero p {
+        font-size: 1.2rem;
+      }
+
+      .about-section {
+        flex: 1; /* pushes footer to bottom if content is short */
+        max-width: 900px;
+        margin: 4rem auto;
+        padding: 0 1rem;
+        text-align: center;
+      }
+      .about-section h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        color: var(--primary);
+      }
+      .about-section p {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+        line-height: 1.7;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--primary);
+        color: var(--white);
+        padding: 3rem 2rem;
+        text-align: center;
+        margin-top: auto; /* always at bottom */
+      }
+      footer .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      footer .social-links {
+        margin-top: 0.5rem;
+      }
+      footer .social-links a {
+        color: var(--accent);
+        margin: 0 0.5rem;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      footer .social-links a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <!-- Header -->
+      <header>
+        <div class="logo">NEXORA</div>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/packages">Packages</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/about" class="active">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="hero">
+        <h1>About NEXORA</h1>
+        <p>Learn more about our mission and work philosophy</p>
+      </section>
+
+      <!-- About Content -->
+      <main class="about-section">
+        <h2>About NEXORA</h2>
+        <p>
+          NEXORA is a modern web agency building professional websites for
+          brands and businesses. We focus on clean, responsive, and attractive
+          designs that help your brand grow online.
+        </p>
+        <p>
+          Our mission is to deliver websites that are fast, mobile-friendly, and
+          easy to maintain while showcasing your brand’s identity.
+        </p>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-content">
+          <p>&copy; 2026 NEXORA. All Rights Reserved.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/nexora_1000/">Instagram</a>
+            <a href="https://www.tiktok.com/@nexora_100">TikTok</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

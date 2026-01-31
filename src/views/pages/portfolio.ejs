@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEXORA - Portfolio</title>
+    <style>
+      :root {
+        --primary: #0a192f;
+        --secondary: #00e5ff;
+        --accent: #6c63ff;
+        --bg: #f8fafc;
+        --white: #fff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        font-family: "Poppins", sans-serif;
+        background: var(--bg);
+        color: var(--primary);
+        line-height: 1.6;
+      }
+
+      .page-wrapper {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Header */
+      header {
+        background: var(--primary);
+        color: var(--white);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        flex-wrap: wrap;
+      }
+      header .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      header nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      header nav ul li a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.3rem 0.5rem;
+        transition: 0.3s;
+      }
+      header nav ul li a:hover,
+      header nav ul li a.active {
+        color: var(--accent);
+      }
+
+      /* Hero */
+      .hero {
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: var(--white);
+        padding: 0 1rem;
+      }
+      .hero h1 {
+        font-size: 2.8rem;
+        margin-bottom: 0.5rem;
+      }
+      .hero p {
+        font-size: 1.2rem;
+      }
+
+      /* Portfolio Section */
+      .portfolio-section {
+        max-width: 1200px;
+        margin: 4rem auto;
+        padding: 0 1rem;
+        text-align: center;
+        flex: 1; /* Pushes footer down if content is small */
+      }
+      .portfolio-section h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 2.5rem;
+        color: var(--primary);
+      }
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .portfolio-item img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+      .portfolio-item img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--primary);
+        color: var(--white);
+        padding: 2rem 1.5rem;
+        text-align: center;
+        margin-top: auto; /* Always at bottom */
+      }
+      footer .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      footer .social-links {
+        margin-top: 0.5rem;
+      }
+      footer .social-links a {
+        color: var(--accent);
+        margin: 0 0.5rem;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      footer .social-links a:hover {
+        text-decoration: underline;
+      }
+
+      /* Responsive */
+      @media (min-width: 640px) {
+        .portfolio-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 1024px) {
+        .portfolio-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <!-- Header -->
+      <header>
+        <div class="logo">NEXORA</div>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/packages">Packages</a></li>
+            <li><a href="/portfolio" class="active">Portfolio</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="hero">
+        <h1>Our Work</h1>
+        <p>Check out some of our recent projects</p>
+      </section>
+
+      <!-- Portfolio Section -->
+      <main class="portfolio-section">
+        <h2>Portfolio</h2>
+        <div class="portfolio-grid">
+          <div class="portfolio-item">
+            <img
+              src="/images/2026-01-10 15_55_04-Tech Startup.png"
+              alt="Project 2"
+            />
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="/images/2025-12-20 21_42_13-Yassenjs — Web Developer.png"
+              alt="Project 1"
+            />
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="/images/2026-01-10 16_03_10-Smart Product.png"
+              alt="Project 3"
+            />
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-content">
+          <p>&copy; 2026 NEXORA. All Rights Reserved.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/nexora_1000/">Instagram</a>
+            <a href="https://www.tiktok.com/@nexora_100">TikTok</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
