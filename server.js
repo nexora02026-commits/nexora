@@ -20,6 +20,7 @@ app.get("/packages", (req, res) => res.render("pages/packages"));
 app.get("/contact", (req, res) => res.render("pages/contact"));
 app.get("/portfolio", (req, res) => res.render("pages/portfolio"));
 app.get("/about", (req, res) => res.render("pages/about"));
+app.get("/owner-section", (req, res) => res.render("pages/owner"));
 let draft = {};
 app.post("/save-draft", (req, res) => {
   const { userId, name, email, package: pkg, message } = req.body;
