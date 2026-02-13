@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NEXORA - Home</title>
-
+    <!-- header -->
+    <link rel="stylesheet" href="../../header.css" />
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" href="/images/agency logo.png" />
 
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -36,6 +38,58 @@
         line-height: 1.6;
       }
 
+      /* Hero Section */
+      .hero {
+        height: 92vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: var(--white);
+        padding: 0 1rem;
+        position: relative;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: url("https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=1950&q=80")
+          center/cover no-repeat;
+        opacity: 0.2;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 1;
+      }
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        position: relative;
+        z-index: 1;
+      }
+      .hero a {
+        background: var(--secondary);
+        color: var(--primary);
+        padding: 1rem 2.5rem;
+        border-radius: 10px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.3s;
+        position: relative;
+        z-index: 1;
+      }
+      .hero a:hover {
+        background: var(--accent);
+        color: var(--white);
+        transform: translateY(-4px);
+      }
       /* Header */
       header {
         background: var(--primary);
@@ -148,59 +202,6 @@
         .hamburger {
           display: flex;
         }
-      }
-
-      /* Hero Section */
-      .hero {
-        height: 90vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background: linear-gradient(135deg, var(--primary), var(--accent));
-        color: var(--white);
-        padding: 0 1rem;
-        position: relative;
-      }
-      .hero::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background: url("https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=1950&q=80")
-          center/cover no-repeat;
-        opacity: 0.2;
-      }
-      .hero h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-        position: relative;
-        z-index: 1;
-      }
-      .hero p {
-        font-size: 1.3rem;
-        margin-bottom: 2rem;
-        position: relative;
-        z-index: 1;
-      }
-      .hero a {
-        background: var(--secondary);
-        color: var(--primary);
-        padding: 1rem 2.5rem;
-        border-radius: 10px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: 0.3s;
-        position: relative;
-        z-index: 1;
-      }
-      .hero a:hover {
-        background: var(--accent);
-        color: var(--white);
-        transform: translateY(-4px);
       }
 
       /* Portfolio Section */
@@ -379,6 +380,19 @@
             <h3>Personal Portfolio</h3>
             <span>Web Design & Development</span>
             <a href="https://responsive-form-by-nexora.netlify.app/"
+              >View Project</a
+            >
+          </div>
+        </div>
+        <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="150">
+          <img
+            src="/images/2026-02-13 02_36_35-Nexora - website.png"
+            alt="Project 3"
+          />
+          <div class="overlay">
+            <h3>Nexora resposive website</h3>
+            <span>Web Design & resposivety</span>
+            <a href="https://nexora-website-responsive.netlify.app/"
               >View Project</a
             >
           </div>

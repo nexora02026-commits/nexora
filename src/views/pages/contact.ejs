@@ -8,6 +8,8 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" href="/images/agency logo.png" />
+
     <style>
       :root {
         --primary: #0a192f;
@@ -379,6 +381,7 @@
 
         <textarea
           name="message"
+          id="message"
           placeholder="Additional details or questions"
         ></textarea>
 
@@ -455,6 +458,15 @@
           formMessage.textContent = "❌ Error sending message. Try again!";
           formMessage.style.color = "red";
         }
+      });
+    </script>
+    <script src="/js/autosave.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AndrewDryga/autosave/autosave.min.js"></script>
+    <script>
+      new AutoSave({
+        form: "#contactForm", // الفورم اللي عايز تحفظه
+        interval: 2000, // كل 2 ثانية
+        storageKey: "contact_form_draft",
       });
     </script>
   </body>
