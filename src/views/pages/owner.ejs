@@ -1,473 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NEXORA - Owner</title>
+<%- include('../partials/header') %>
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="/images/agency logo.png" />
+<div class="page-hero">
+  <span class="tag">The Founder</span>
+  <h1>Behind NEXORA</h1>
+  <p>A 16-year-old developer from Egypt with a big vision and the skills to back it up.</p>
+</div>
 
-    <style>
-      :root {
-        --primary: #0a192f;
-        --accent: #6c63ff;
-        --white: #ffffff;
-        --bg: #f4f7fb;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Poppins", sans-serif;
-        background: var(--bg);
-        color: var(--primary);
-        line-height: 1.6;
-      }
-
-      /* ===== Header ===== */
-      header {
-        background: var(--primary);
-        color: var(--white);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 3rem;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-      }
-
-      .logo {
-        font-size: 1.8rem;
-        font-weight: 700;
-      }
-
-      nav {
-        display: flex;
-        align-items: center;
-      }
-
-      .nav-links {
-        list-style: none;
-        display: flex;
-        gap: 2rem;
-      }
-
-      .nav-links a {
-        color: var(--white);
-        text-decoration: none;
-        font-weight: 500;
-        position: relative;
-      }
-
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -4px;
-        width: 0;
-        height: 2px;
-        background: var(--accent);
-        transition: 0.3s;
-      }
-
-      .nav-links a:hover::after,
-      .nav-links a.active::after {
-        width: 100%;
-      }
-
-      .nav-links a:hover,
-      .nav-links a.active {
-        color: var(--accent);
-      }
-
-      .hamburger {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-      }
-
-      .hamburger span {
-        width: 26px;
-        height: 3px;
-        background: white;
-        border-radius: 2px;
-        transition: 0.3s;
-      }
-
-      /* ===== Sections ===== */
-      .owner-section {
-        padding: 5rem 2rem;
-      }
-
-      .container {
-        max-width: 1100px;
-        margin: auto;
-      }
-
-      .owner-section h1 {
-        text-align: center;
-        font-size: 2.6rem;
-        margin-bottom: 3rem;
-      }
-
-      /* ===== Info Cards ===== */
-      .info-card {
-        background: white;
-        padding: 2rem;
-        border-radius: 18px;
-        margin-bottom: 2rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-        transition: 0.3s ease;
-      }
-
-      .info-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      }
-
-      .info-card h2 {
-        margin-bottom: 1rem;
-        color: var(--accent);
-      }
-
-      /* ===== Skills Grid ===== */
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-      }
-
-      .skill-card {
-        position: relative;
-        background: white;
-        padding: 2.2rem 1.5rem;
-        border-radius: 20px;
-        text-align: center;
-        overflow: hidden;
-        transition: 0.4s ease;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-        z-index: 1;
-      }
-
-      .skill-card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(135deg, var(--primary), var(--accent));
-        opacity: 0;
-        transition: 0.4s ease;
-        z-index: -1;
-      }
-
-      .skill-card span {
-        font-size: 2.2rem;
-        display: block;
-        margin-bottom: 1rem;
-        transition: 0.4s;
-      }
-
-      .skill-card h3 {
-        margin-bottom: 0.5rem;
-        font-weight: 600;
-        transition: 0.4s;
-      }
-
-      .skill-card p {
-        font-size: 0.9rem;
-        color: #555;
-        transition: 0.4s;
-      }
-
-      .skill-card:hover {
-        transform: translateY(-12px);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-      }
-
-      .skill-card:hover::before {
-        opacity: 1;
-      }
-
-      .skill-card:hover h3,
-      .skill-card:hover p,
-      .skill-card:hover span {
-        color: white;
-      }
-
-      /* ===== Certificates Grid ===== */
-      .certificates-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-      }
-
-      .certificate-card {
-        background: white;
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-        transition: 0.4s ease;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .certificate-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
-      }
-
-      .certificate-image {
-        width: 100%;
-        height: 220px;
-        overflow: hidden;
-        border-radius: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #f4f7fb;
-      }
-
-      .certificate-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 15px;
-        transition: transform 0.4s ease;
-      }
-
-      .certificate-card:hover img {
-        transform: scale(1.05);
-      }
-
-      .certificate-content {
-        padding: 1.5rem;
-        text-align: center;
-      }
-
-      .certificate-content h3 {
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
-        color: var(--primary);
-      }
-
-      .certificate-content p {
-        font-size: 0.9rem;
-        color: #555;
-        margin-bottom: 0.7rem;
-      }
-
-      .certificate-content span {
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: var(--accent);
-      }
-
-      /* ===== Responsive ===== */
-      @media (max-width: 768px) {
-        header {
-          padding: 1rem 1.5rem;
-        }
-        .nav-links {
-          position: fixed;
-          top: 0;
-          right: -100%;
-          width: 100%;
-          height: 100vh;
-          background: var(--primary);
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          transition: 0.4s;
-        }
-        .nav-links.show {
-          right: 0;
-        }
-        .hamburger {
-          display: flex;
-        }
-        .skills-grid,
-        .certificates-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <header>
-      <div class="logo">Nexora</div>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/packages">Packages</a></li>
-          <li><a href="/portfolio">Portfolio</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="#" class="active">Owner</a></li>
-        </ul>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </nav>
-    </header>
-
-    <section class="owner-section">
-      <div class="container">
-        <h1>About The Owner</h1>
-
-        <div class="info-card">
-          <h2>Personal Info</h2>
-          <p><strong>Name:</strong> Yassin</p>
-          <p><strong>Age:</strong> 16</p>
-          <p><strong>Location:</strong> Egypt</p>
-        </div>
-
-        <div class="info-card">
-          <h2>Education</h2>
-          <p>High School Student</p>
-          <p>Self-learning Web Development</p>
-        </div>
-
-        <div class="info-card">
-          <h2>Skills</h2>
-          <div class="skills-grid">
-            <div class="skill-card">
-              <span>💻</span>
-              <h3>HTML</h3>
-              <p>Semantic structure & clean markup</p>
-            </div>
-
-            <div class="skill-card">
-              <span>🎨</span>
-              <h3>CSS</h3>
-              <p>Modern layouts & animations</p>
-            </div>
-
-            <div class="skill-card">
-              <span>⚡</span>
-              <h3>JavaScript</h3>
-              <p>Interactive UI logic</p>
-            </div>
-
-            <div class="skill-card">
-              <span>🛠</span>
-              <h3>PHP</h3>
-              <p>Backend development</p>
-            </div>
-
-            <div class="skill-card">
-              <span>🗄</span>
-              <h3>MySQL</h3>
-              <p>Database management</p>
-            </div>
-
-            <div class="skill-card">
-              <span>🔥</span>
-              <h3>Firebase</h3>
-              <p>Cloud & realtime services</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="info-card">
-          <h2>Vision</h2>
-          <p>
-            My goal is to build Nexora into a strong digital brand and become
-            one of the most creative tech entrepreneurs in the future.
-          </p>
-        </div>
+<section class="section" style="background:var(--surface)">
+  <div class="inner">
+    <div class="owner-layout">
+      <div class="profile-card reveal">
+        <div class="owner-av">👨‍💻</div>
+        <h2>Yassin</h2>
+        <div class="owner-role">Founder &amp; Lead Developer</div>
+        <div class="p-det"><span class="p-det-icon">📍</span><span class="p-det-val">Egypt</span></div>
+        <div class="p-det"><span class="p-det-icon">🎂</span><span class="p-det-val">16 years old</span></div>
+        <div class="p-det"><span class="p-det-icon">📚</span><span class="p-det-val">High School Student</span></div>
+        <div class="p-det"><span class="p-det-icon">💻</span><span class="p-det-val">Self-taught Developer</span></div>
+        <p class="owner-bio">I started coding out of curiosity and quickly fell in love with turning ideas into real websites. I founded NEXORA to make professional web design accessible to small businesses — without the agency price tag.</p>
+        <div class="vision">"My goal is to build Nexora into a strong digital brand and become one of the most creative tech entrepreneurs in the region."</div>
       </div>
-    </section>
-    <div class="info-card">
-      <h2>Certificates</h2>
 
-      <div class="certificates-grid">
-        <div class="certificate-card">
-          <div class="certificate-image">
-            <img src="/images/ai.png" alt="ai overview" />
-          </div>
-
-          <div class="certificate-content">
-            <h3>Overview of AI</h3>
-            <p>Issued by: huawei talent</p>
-            <span>2025</span>
+      <div class="owner-right">
+        <div class="block reveal">
+          <h3>Technical Skills</h3>
+          <div class="skills-grid">
+            <div class="skill-chip"><div class="chip-icon">💻</div><div class="chip-name">HTML</div><div class="chip-desc">Semantic markup</div></div>
+            <div class="skill-chip"><div class="chip-icon">🎨</div><div class="chip-name">CSS</div><div class="chip-desc">Layouts &amp; animations</div></div>
+            <div class="skill-chip"><div class="chip-icon">⚡</div><div class="chip-name">JavaScript</div><div class="chip-desc">Interactive UI</div></div>
+            <div class="skill-chip"><div class="chip-icon">🛠</div><div class="chip-name">PHP</div><div class="chip-desc">Backend logic</div></div>
+            <div class="skill-chip"><div class="chip-icon">🗄</div><div class="chip-name">MySQL</div><div class="chip-desc">Databases</div></div>
+            <div class="skill-chip"><div class="chip-icon">🔥</div><div class="chip-name">Firebase</div><div class="chip-desc">Cloud services</div></div>
           </div>
         </div>
-
-        <div class="certificate-card">
-          <div class="certificate-image">
-            <img
-              src="/images/info.png"
-              alt="inforamtion and data ogranization Certificate"
-            />
-          </div>
-
-          <div class="certificate-content">
-            <h3>inforamtion and data ogranization</h3>
-            <p>Issued by: huawei talent</p>
-            <span>2025</span>
-          </div>
-        </div>
-        <div class="certificate-card">
-          <div class="certificate-image">
-            <img
-              src="/images/2026-02-13 18_47_33-Home - Google Drive.png"
-              alt="DECI first phase"
-            />
-          </div>
-
-          <div class="certificate-content">
-            <h3>First phase from DECI</h3>
-            <p>Issued by: DECI</p>
-            <span>2025</span>
-          </div>
-        </div>
-        <div class="certificate-card">
-          <div class="certificate-image">
-            <img src="/images/cloude.png" alt="cloud basics" />
-          </div>
-
-          <div class="certificate-content">
-            <h3>cloud and basic computing</h3>
-            <p>Issued by: huawei talet</p>
-            <span>2025</span>
-          </div>
-        </div>
-        <div class="certificate-card">
-          <div class="certificate-image">
-            <img src="/images/data manage.png" alt="data management" />
-          </div>
-
-          <div class="certificate-content">
-            <h3>Data management and anayltics</h3>
-            <p>Issued by: huawei talet</p>
-            <span>2025</span>
-          </div>
+        <div class="block reveal">
+          <h3>Education</h3>
+          <div class="edu-item"><div class="edu-dot"></div><div><span class="edu-label">High School Student</span><span class="edu-sub">Currently enrolled · Egypt</span></div></div>
+          <div class="edu-item"><div class="edu-dot"></div><div><span class="edu-label">Self-taught Web Development</span><span class="edu-sub">HTML, CSS, JS, PHP, Firebase · 2023–present</span></div></div>
+          <div class="edu-item"><div class="edu-dot"></div><div><span class="edu-label">DECI First Phase Program</span><span class="edu-sub">Digital skills development · 2025</span></div></div>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <script>
-      const hamburger = document.querySelector(".hamburger");
-      const navLinks = document.querySelector(".nav-links");
+<!-- CERTIFICATES -->
+<section class="section" style="background:#fff">
+  <div class="inner">
+    <div class="reveal">
+      <span class="tag">Certifications</span>
+      <h2 style="margin-bottom:.75rem">Certificates &amp; Achievements</h2>
+      <p style="max-width:560px;margin-bottom:3rem">Formal recognition from globally recognized institutions.</p>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card reveal"><div class="cert-thumb"><img src="/images/ai.png" alt="AI Overview"/></div><div class="cert-body"><div class="cert-issuer">Huawei Talent</div><h4>Overview of Artificial Intelligence</h4><div class="cert-year">2025</div></div></div>
+      <div class="cert-card reveal"><div class="cert-thumb"><img src="/images/info.png" alt="Data Organization"/></div><div class="cert-body"><div class="cert-issuer">Huawei Talent</div><h4>Information and Data Organization</h4><div class="cert-year">2025</div></div></div>
+      <div class="cert-card reveal"><div class="cert-thumb"><img src="/images/deci.png" alt="DECI"/></div><div class="cert-body"><div class="cert-issuer">DECI</div><h4>First Phase Program — Digital Skills</h4><div class="cert-year">2025</div></div></div>
+      <div class="cert-card reveal"><div class="cert-thumb"><img src="/images/cloude.png" alt="Cloud Computing"/></div><div class="cert-body"><div class="cert-issuer">Huawei Talent</div><h4>Cloud and Basic Computing</h4><div class="cert-year">2025</div></div></div>
+      <div class="cert-card reveal"><div class="cert-thumb"><img src="/images/data manage.png" alt="Data Management"/></div><div class="cert-body"><div class="cert-issuer">Huawei Talent</div><h4>Data Management and Analytics</h4><div class="cert-year">2025</div></div></div>
+    </div>
+  </div>
+</section>
 
-      hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("show");
-      });
-    </script>
-  </body>
-</html>
+<div class="bottom-cta">
+  <h2>Want to work with me?</h2>
+  <p>I'm passionate about helping businesses grow online. Let's talk about your project.</p>
+  <a href="/contact" class="btn btn-primary">Start a Conversation →</a>
+</div>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,81 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a href="/" class="f-logo-link">
+      <img src="/images/agency_logo.png" alt="NEXORA" class="f-logo-img"/>
+    </a>
+    <p class="f-tagline">Professional web design for brands that mean business.</p>
+    <div class="f-links">
+      <a href="/">Home</a>
+      <a href="/packages">Packages</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="f-divider"></div>
+    <div class="f-social">
+      <a href="https://www.instagram.com/nexora_1000/" target="_blank" aria-label="Instagram">IG</a>
+      <a href="https://www.tiktok.com/@nexora_100" target="_blank" aria-label="TikTok">TT</a>
+    </div>
+    <div class="f-copy">&copy; 2026 NEXORA — All Rights Reserved.</div>
+  </div>
+</footer>
+
+<!-- Page wipe element -->
+<div class="page-wipe" id="pageWipe"></div>
+
+<script>
+  // ── Page Loader ──
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('page-loader').classList.add('hidden');
+      document.body.classList.add('loaded');
+    }, 900);
+  });
+
+  // ── Header scroll effect ──
+  const header = document.querySelector('.site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // ── Hamburger ──
+  const burger = document.getElementById('burger');
+  const nav    = document.getElementById('nav');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    nav.classList.toggle('open');
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.classList.remove('open');
+    nav.classList.remove('open');
+    document.body.style.overflow = '';
+  }));
+
+  // ── Page transition on nav clicks ──
+  const wipe = document.getElementById('pageWipe');
+  document.querySelectorAll('a[href^="/"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const href = link.getAttribute('href');
+      if (href === window.location.pathname) return;
+      e.preventDefault();
+      wipe.classList.add('leaving');
+      setTimeout(() => { window.location.href = href; }, 440);
+    });
+  });
+
+  // ── Scroll reveal with stagger ──
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => {
+          e.target.classList.add('on');
+        }, i * 60);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

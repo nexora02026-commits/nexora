@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title><%= title %> — NEXORA</title>
+  <link rel="icon" href="/images/agency_logo.png" type="image/png"/>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+
+<!-- Page Loader -->
+<div id="page-loader">
+  <div class="loader-logo">
+    <img src="/images/agency_logo.png" alt="NEXORA" class="loader-img"/>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo-link">
+      <img src="/images/agency_logo.png" alt="NEXORA" class="logo-img"/>
+    </a>
+    <nav>
+      <ul class="nav-links" id="nav">
+        <li><a href="/"              <%= page==='home'      ? 'class="active"' : '' %>>Home</a></li>
+        <li><a href="/packages"      <%= page==='packages'  ? 'class="active"' : '' %>>Packages</a></li>
+        <li><a href="/portfolio"     <%= page==='portfolio' ? 'class="active"' : '' %>>Portfolio</a></li>
+        <li><a href="/about"         <%= page==='about'     ? 'class="active"' : '' %>>About</a></li>
+        <li><a href="/owner-section" <%= page==='owner'     ? 'class="active"' : '' %>>Owner</a></li>
+        <li class="nav-cta"><a href="/contact" <%= page==='contact' ? 'class="active"' : '' %>>Get Started</a></li>
+      </ul>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>

@@ -1,421 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NEXORA - Packages</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="/images/agency logo.png" />
+<%- include('../partials/header') %>
 
-    <style>
-      :root {
-        --primary: #0a192f;
-        --secondary: #00e5ff;
-        --accent: #6c63ff;
-        --bg: #f8fafc;
-        --white: #fff;
-      }
+<div class="page-hero">
+  <span class="tag">Pricing</span>
+  <h1>Simple, Clear Pricing</h1>
+  <p>No hidden fees. No surprises. Pick the package that fits your goals and let's get to work.</p>
+</div>
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Poppins", sans-serif;
-        background: var(--bg);
-        color: var(--primary);
-        line-height: 1.6;
-      }
-
-      .hero {
-        height: 40vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background: linear-gradient(135deg, var(--primary), var(--accent));
-        color: var(--white);
-      }
-
-      .hero h1 {
-        font-size: 3rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .hero p {
-        font-size: 1.2rem;
-      }
-
-      .packages-section {
-        padding: 4rem 2rem;
-      }
-
-      .packages-section h2 {
-        text-align: center;
-        font-size: 2.6rem;
-        margin-bottom: 3rem;
-      }
-
-      .grid {
-        display: grid;
-        gap: 2rem;
-        max-width: 1200px;
-        margin: auto;
-      }
-
-      .grid-3 {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      }
-
-      .card {
-        background: var(--white);
-        padding: 2.5rem 2rem;
-        border-radius: 18px;
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
-        position: relative;
-        transition: 0.3s;
-      }
-
-      .card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 6px;
-        background: var(--accent);
-        border-radius: 18px 18px 0 0;
-      }
-
-      .card:hover {
-        transform: translateY(-8px);
-      }
-
-      .card h3 {
-        font-size: 1.8rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .price {
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: var(--accent);
-      }
-
-      .duration {
-        font-style: italic;
-        margin-bottom: 1rem;
-        color: #555;
-      }
-
-      .desc {
-        margin-bottom: 1rem;
-        color: #333;
-      }
-
-      .card ul {
-        margin-left: 1rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .card ul li {
-        margin-bottom: 0.5rem;
-      }
-
-      .card a {
-        display: inline-block;
-        background: var(--secondary);
-        color: var(--primary);
-        padding: 0.8rem 1.6rem;
-        border-radius: 10px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: 0.3s;
-      }
-
-      .card a:hover {
-        background: var(--accent);
-        color: var(--white);
-        transform: translateY(-3px);
-      }
-
-      footer {
-        background: var(--primary);
-        color: var(--white);
-        padding: 3rem 2rem;
-        text-align: center;
-        margin-top: 4rem;
-      }
-
-      footer a {
-        color: var(--accent);
-        margin: 0 0.5rem;
-        text-decoration: none;
-      }
-
-      @media (max-width: 768px) {
-        .hero h1 {
-          font-size: 2.2rem;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <header>
-      <div class="logo">NEXORA</div>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/packages" class="active">Packages</a></li>
-          <li><a href="/portfolio">Portfolio</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/owner-section" title="about the owner">Owner</a></li>
+<!-- PRICING CARDS -->
+<section class="section" style="background:var(--surface)">
+  <div class="inner">
+    <div class="pricing-grid">
+      <div class="p-card reveal">
+        <div class="pkg-tier">Starter</div>
+        <div class="pkg-name">البداية</div>
+        <div class="pkg-price">200 – 500 جنيه</div>
+        <div class="pkg-del">⏱ Delivered in 2–3 days</div>
+        <p class="pkg-desc">Perfect for launching fast. One high-impact page to capture leads and showcase what you do.</p>
+        <ul class="pkg-feats">
+          <li>Full landing page (1 page)</li>
+          <li>Modern, mobile-first design</li>
+          <li>Contact form + WhatsApp button</li>
+          <li>Fast loading + Basic SEO</li>
+          <li>Free deployment on Netlify</li>
         </ul>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </nav>
-    </header>
-
-    <style>
-      :root {
-        --primary: #0a192f;
-        --accent: #6c63ff;
-        --white: #fff;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      header {
-        background: var(--primary);
-        color: var(--white);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 3rem;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-      }
-
-      .logo {
-        font-size: 2rem;
-        font-weight: 700;
-        letter-spacing: 1px;
-        cursor: pointer;
-      }
-
-      nav {
-        display: flex;
-        align-items: center;
-      }
-
-      .nav-links {
-        list-style: none;
-        display: flex;
-        gap: 2rem;
-      }
-
-      .nav-links li a {
-        color: var(--white);
-        text-decoration: none;
-        font-weight: 500;
-        padding: 0.3rem 0;
-        position: relative;
-        transition: color 0.3s;
-      }
-
-      .nav-links li a::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -3px;
-        width: 0;
-        height: 2px;
-        background: var(--accent);
-        transition: width 0.3s;
-      }
-
-      .nav-links li a:hover::after,
-      .nav-links li a.active::after {
-        width: 100%;
-      }
-
-      .nav-links li a:hover,
-      .nav-links li a.active {
-        color: var(--accent);
-      }
-
-      .hamburger {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-        margin-left: 1rem;
-        z-index: 1100;
-      }
-
-      .hamburger span {
-        width: 28px;
-        height: 3px;
-        background: var(--white);
-        border-radius: 2px;
-        transition: all 0.4s ease;
-      }
-
-      /* Mobile menu */
-      @media (max-width: 768px) {
-        .nav-links {
-          position: fixed;
-          top: 0;
-          right: -100%;
-          width: 100%;
-          height: 100vh;
-          background: rgba(10, 25, 47, 0.95);
-          backdrop-filter: blur(5px);
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          gap: 2rem;
-          transition: right 0.5s ease;
-          z-index: 1000;
-        }
-
-        .nav-links.show {
-          right: 0;
-        }
-
-        .nav-links li {
-          opacity: 0;
-          transform: translateX(50px);
-          transition: all 0.4s ease;
-        }
-
-        .nav-links.show li {
-          opacity: 1;
-          transform: translateX(0);
-        }
-
-        .hamburger {
-          display: flex;
-        }
-
-        .hamburger.active span:nth-child(1) {
-          transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-          opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-          transform: rotate(-45deg) translate(5px, -5px);
-        }
-      }
-    </style>
-
-    <script>
-      const hamburger = document.querySelector(".hamburger");
-      const navLinks = document.querySelector(".nav-links");
-
-      hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("show");
-        hamburger.classList.toggle("active");
-
-        const links = navLinks.querySelectorAll("li");
-        links.forEach((link, index) => {
-          if (navLinks.classList.contains("show")) {
-            link.style.transitionDelay = `${index * 0.1 + 0.2}s`;
-          } else {
-            link.style.transitionDelay = `0s`;
-          }
-        });
-      });
-    </script>
-
-    <section class="hero">
-      <h1>Our Packages</h1>
-      <p>Simple. Clear. Effective.</p>
-    </section>
-
-    <section class="packages-section">
-      <h2>Choose Your Package</h2>
-
-      <div class="grid grid-3">
-        <!-- البداية -->
-        <div class="card">
-          <h3>البداية</h3>
-          <p class="price">200 – 500 جنيه</p>
-          <p class="duration">تسليم خلال 2 – 3 أيام</p>
-          <p class="desc">
-            صفحة واحدة احترافية لعرض منتجك أو خدمتك بشكل جذاب وسريع.
-          </p>
-          <ul>
-            <li>Landing Page كاملة</li>
-            <li>تصميم عصري متوافق مع الموبايل</li>
-            <li>نموذج تواصل + زر واتساب</li>
-            <li>تحميل سريع + SEO أساسي</li>
-          </ul>
-          <a href="/contact">Start Now</a>
-        </div>
-
-        <!-- نجاح -->
-        <div class="card">
-          <h3>نجاح</h3>
-          <p class="price">500 – 1000 جنيه</p>
-          <p class="duration">تسليم خلال 5 – 9 أيام</p>
-          <p class="desc">موقع متكامل لبراندك يعرض خدماتك ويزيد ثقة العملاء.</p>
-          <ul>
-            <li>3 – 5 صفحات احترافية</li>
-            <li>تصميم UI/UX مخصص</li>
-            <li>نموذج تواصل + خريطة</li>
-            <li>ربط وسائل التواصل</li>
-            <li>تحسين سرعة + SEO أساسي</li>
-          </ul>
-          <a href="/contact">Grow Your Brand</a>
-        </div>
-
-        <!-- قمة -->
-        <div class="card">
-          <h3>قمة</h3>
-          <p class="price">1000 – 1500 جنيه</p>
-          <p class="duration">تسليم خلال 10 – 12 أيام</p>
-          <p class="desc">
-            موقع شامل احترافي يعكس قوة البراند ويحوّل الزوار لعملاء.
-          </p>
-          <ul>
-            <li>5 – 10 صفحات متكاملة</li>
-            <li>Portfolio + Testimonials</li>
-            <li>Forms متقدمة + Newsletter</li>
-            <li>سرعة عالية وتجربة مستخدم ممتازة</li>
-            <li>دعم فني بعد التسليم</li>
-          </ul>
-          <a href="/contact">Go Premium</a>
-        </div>
+        <a href="/contact" class="btn btn-outline pkg-btn">Get Started →</a>
       </div>
-    </section>
 
-    <footer>
-      <p>&copy; 2026 NEXORA. All Rights Reserved.</p>
-      <div>
-        <a href="https://www.instagram.com/nexora_1000/">Instagram</a>
-        <a href="https://www.tiktok.com/@nexora_100">TikTok</a>
+      <div class="p-card featured reveal">
+        <div class="feat-badge">⭐ Most Popular</div>
+        <div class="pkg-tier">Growth</div>
+        <div class="pkg-name">نجاح</div>
+        <div class="pkg-price">500 – 1000 جنيه</div>
+        <div class="pkg-del">⏱ Delivered in 5–9 days</div>
+        <p class="pkg-desc">A full website that builds credibility, showcases your services, and grows customer trust.</p>
+        <ul class="pkg-feats">
+          <li>3–5 professional pages</li>
+          <li>Custom UI/UX design</li>
+          <li>Contact form + Map integration</li>
+          <li>Social media links</li>
+          <li>Speed optimized + Basic SEO</li>
+          <li>Mobile-responsive on all devices</li>
+        </ul>
+        <a href="/contact" class="btn btn-primary pkg-btn">Grow Your Brand →</a>
       </div>
-    </footer>
-  </body>
-</html>
+
+      <div class="p-card reveal">
+        <div class="pkg-tier">Premium</div>
+        <div class="pkg-name">قمة</div>
+        <div class="pkg-price">1000 – 1500 جنيه</div>
+        <div class="pkg-del">⏱ Delivered in 10–12 days</div>
+        <p class="pkg-desc">A complete, powerful website that reflects your brand's strength and converts visitors into customers.</p>
+        <ul class="pkg-feats">
+          <li>5–10 complete pages</li>
+          <li>Portfolio + Testimonials section</li>
+          <li>Advanced forms + Newsletter</li>
+          <li>High performance &amp; premium UX</li>
+          <li>Post-delivery technical support</li>
+          <li>Analytics setup + Advanced SEO</li>
+        </ul>
+        <a href="/contact" class="btn btn-dark pkg-btn">Go Premium →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="section" style="background:#fff">
+  <div class="inner">
+    <div class="reveal">
+      <span class="tag">Compare</span>
+      <h2 style="margin-bottom:.75rem">Feature comparison</h2>
+      <p style="max-width:560px;margin-bottom:3rem">See exactly what's included in each package at a glance.</p>
+    </div>
+    <div class="tbl-wrap reveal">
+      <table class="compare-tbl">
+        <thead><tr><th>Feature</th><th>البداية</th><th>نجاح</th><th>قمة</th></tr></thead>
+        <tbody>
+          <tr><td>Mobile-responsive</td><td class="chk">✓</td><td class="chk">✓</td><td class="chk">✓</td></tr>
+          <tr><td>Contact form</td><td class="chk">✓</td><td class="chk">✓</td><td class="chk">✓</td></tr>
+          <tr><td>Number of pages</td><td>1</td><td>3–5</td><td>5–10</td></tr>
+          <tr><td>Custom UI/UX design</td><td class="crs">—</td><td class="chk">✓</td><td class="chk">✓</td></tr>
+          <tr><td>Portfolio &amp; Testimonials</td><td class="crs">—</td><td class="crs">—</td><td class="chk">✓</td></tr>
+          <tr><td>Newsletter integration</td><td class="crs">—</td><td class="crs">—</td><td class="chk">✓</td></tr>
+          <tr><td>Advanced SEO</td><td class="crs">—</td><td class="crs">—</td><td class="chk">✓</td></tr>
+          <tr><td>Post-delivery support</td><td class="crs">—</td><td class="crs">—</td><td class="chk">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:var(--surface)">
+  <div class="inner">
+    <div class="reveal"><span class="tag">FAQ</span><h2 style="margin-bottom:3rem">Common questions</h2></div>
+    <div class="faq-grid">
+      <div class="faq-item reveal"><h4>How do I pay?</h4><p>We accept bank transfer and mobile payment. 50% upfront, 50% on delivery.</p></div>
+      <div class="faq-item reveal"><h4>Do you offer revisions?</h4><p>Yes — all packages include up to 2 rounds of revision before final delivery.</p></div>
+      <div class="faq-item reveal"><h4>Will my site work on mobile?</h4><p>Absolutely. Every site is mobile-first by default and tested across all devices.</p></div>
+      <div class="faq-item reveal"><h4>Can I upgrade later?</h4><p>Of course. Start with البداية and upgrade as your business grows — no problem.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="bottom-cta">
+  <h2>Not sure which package fits?</h2>
+  <p>Send us a message and we'll recommend the best option for your goals and budget — no pressure.</p>
+  <a href="/contact" class="btn btn-primary">Talk to Us →</a>
+</div>
+
+<%- include('../partials/footer') %>

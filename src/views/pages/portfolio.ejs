@@ -1,404 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NEXORA - Portfolio</title>
+<%- include('../partials/header') %>
 
-    <!-- Google Font -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="/images/agency logo.png">
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+<div class="page-hero">
+  <span class="tag">Our Work</span>
+  <h1>Built with Purpose,<br>Designed to Perform</h1>
+  <p>Every project is a partnership — we listen, design, and deliver results that actually move the needle.</p>
+</div>
 
-    <style>
-      :root {
-        --primary: #0a192f;
-        --secondary: #00e5ff;
-        --accent: #6c63ff;
-        --bg: #f8fafc;
-        --white: #ffffff;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "Poppins", sans-serif;
-        background: var(--bg);
-        color: var(--primary);
-        line-height: 1.6;
-      }
-
-      /* Header */
-      header {
-        background: var(--primary);
-        color: var(--white);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 3rem;
-        position: sticky;
-        top: 0;
-        z-index: 999;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-      }
-
-      .logo {
-        font-size: 2rem;
-        font-weight: 700;
-        cursor: pointer;
-      }
-
-      nav {
-        display: flex;
-        align-items: center;
-      }
-
-      .nav-links {
-        list-style: none;
-        display: flex;
-        gap: 2rem;
-      }
-
-      .nav-links li a {
-        color: var(--white);
-        text-decoration: none;
-        font-weight: 500;
-        position: relative;
-        transition: color 0.3s;
-      }
-
-      .nav-links li a::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -3px;
-        width: 0;
-        height: 2px;
-        background: var(--accent);
-        transition: width 0.3s;
-      }
-
-      .nav-links li a:hover::after,
-      .nav-links li a.active::after {
-        width: 100%;
-      }
-
-      .nav-links li a:hover,
-      .nav-links li a.active {
-        color: var(--accent);
-      }
-
-      /* Hamburger */
-      .hamburger {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-        z-index: 1100;
-      }
-
-      .hamburger span {
-        width: 28px;
-        height: 3px;
-        background: var(--white);
-        border-radius: 2px;
-        transition: all 0.4s ease;
-      }
-
-      /* Mobile menu */
-      @media (max-width: 768px) {
-        .nav-links {
-          position: fixed;
-          top: 0;
-          right: -100%;
-          width: 100%;
-          height: 100vh;
-          background: rgba(10, 25, 47, 0.95);
-          backdrop-filter: blur(5px);
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          gap: 2rem;
-          transition: right 0.5s ease;
-        }
-
-        .nav-links.show {
-          right: 0;
-        }
-
-        .nav-links li {
-          opacity: 0;
-          transform: translateX(50px);
-          transition: all 0.4s ease;
-        }
-        .nav-links.show li {
-          opacity: 1;
-          transform: translateX(0);
-        }
-
-        .hamburger {
-          display: flex;
-        }
-
-        .hamburger.active span:nth-child(1) {
-          transform: rotate(45deg) translate(5px, 5px);
-        }
-        .hamburger.active span:nth-child(2) {
-          opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-          transform: rotate(-45deg) translate(5px, -5px);
-        }
-      }
-
-      /* Hero Section */
-      .hero {
-        min-height: 45vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background: linear-gradient(135deg, var(--primary), var(--accent));
-        color: var(--white);
-        padding: 2rem 1rem;
-      }
-
-      .hero h1 {
-        font-size: 3rem;
-        margin-bottom: 0.5rem;
-      }
-      .hero p {
-        font-size: 1.2rem;
-        max-width: 600px;
-      }
-
-      /* Portfolio Section */
-      .portfolio-section {
-        max-width: 1200px;
-        margin: 4rem auto;
-        padding: 0 1rem;
-        text-align: center;
-      }
-      .portfolio-section h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-      }
-      .portfolio-section p {
-        max-width: 700px;
-        margin: 0 auto 3rem;
-        color: #555;
-      }
-
-      .portfolio-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-      }
-
-      .portfolio-item {
-        position: relative;
-        overflow: hidden;
-        border-radius: 16px;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-        transition:
-          transform 0.4s ease,
-          box-shadow 0.4s ease;
-      }
-
-      .portfolio-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-      }
-
-      .portfolio-item:hover img {
-        transform: scale(1.12);
-      }
-
-      .overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(10, 25, 47, 0.85);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.5s ease;
-        text-align: center;
-        padding: 1.2rem;
-      }
-
-      .portfolio-item:hover .overlay {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .overlay h3 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-        color: var(--white);
-      }
-      .overlay span {
-        font-size: 1rem;
-        color: var(--secondary);
-        margin-bottom: 1rem;
-      }
-      .overlay a {
-        display: inline-block;
-        padding: 0.5rem 1.2rem;
-        background: var(--accent);
-        color: var(--white);
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 500;
-        transition: background 0.3s ease;
-      }
-      .overlay a:hover {
-        background: var(--secondary);
-      }
-
-      /* Footer */
-      footer {
-        background: var(--primary);
-        color: var(--white);
-        padding: 2rem 1rem;
-        text-align: center;
-      }
-      footer a {
-        color: var(--accent);
-        margin: 0 0.5rem;
-        text-decoration: none;
-      }
-      footer a:hover {
-        text-decoration: underline;
-      }
-
-      @media (max-width: 768px) {
-        .hero h1 {
-          font-size: 2.2rem;
-        }
-        .portfolio-grid {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-        }
-        .overlay h3 {
-          font-size: 1.3rem;
-        }
-        .overlay span {
-          font-size: 0.9rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="logo">NEXORA</div>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/packages">Packages</a></li>
-          <li><a href="/portfolio" class="active">Portfolio</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-                    <li><a href="/owner-section" title="about the owner">Owner</a></li>
-
-        </ul>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
+<section class="section" style="background:var(--surface)">
+  <div class="inner">
+    <div class="port-grid">
+      <div class="port-item reveal">
+        <div class="port-thumb">
+          <img src="/images/leon.png" alt="Tech Startup"/>
+          <div class="port-thumb-over"><a href="https://template-by-nexora.netlify.app/" target="_blank" class="view-live">View Live →</a></div>
         </div>
-      </nav>
-    </header>
-
-    <section class="hero">
-      <h1 data-aos="fade-up">Our Creative Work</h1>
-      <p data-aos="fade-up" data-aos-delay="150">
-        We craft high-performance, modern and scalable websites for ambitious
-        brands.
-      </p>
-    </section>
-
-    <main class="portfolio-section">
-     <section class="portfolio-section">
-      <h2 data-aos="fade-up">Our Work</h2>
-      <p data-aos="fade-up" data-aos-delay="150">
-        Check out some of our recent projects. Each website is built with
-        performance and modern design in mind.
-      </p>
-
-      <div class="portfolio-grid">
-        <div class="portfolio-item" data-aos="zoom-in">
-          <img src="/images/2026-02-01 21_21_29-leon.png" alt="Project 1" />
-          <div class="overlay">
-            <h3>Tech Startup</h3>
-            <span>Landing Page & Branding</span>
-            <a href="https://template-by-nexora.netlify.app/">View Project</a>
-          </div>
-        </div>
-        <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="150">
-          <img
-            src="/images/2025-12-20 21_42_13-Yassenjs — Web Developer.png"
-            alt="Project 2"
-          />
-          <div class="overlay">
-            <h3>Personal Portfolio</h3>
-            <span>Web Design & Development</span>
-            <a href="https://responsive-form-by-nexora.netlify.app/"
-              >View Project</a
-            >
-          </div>
-        </div>
-        <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="150">
-          <img
-            src="/images/2026-02-13 02_36_35-Nexora - website.png"
-            alt="Project 3"
-          />
-          <div class="overlay">
-            <h3>Nexora resposive website</h3>
-            <span>Web Design & resposivety</span>
-            <a href="https://nexora-website-responsive.netlify.app/"
-              >View Project</a
-            >
-          </div>
+        <div class="port-body">
+          <span class="port-tag">Landing Page</span>
+          <h3>Tech Startup</h3>
+          <p>High-converting landing page with bold branding, product showcase, and lead capture form.</p>
+          <a href="https://template-by-nexora.netlify.app/" target="_blank" class="port-link">View Project →</a>
         </div>
       </div>
-    </section>
-    </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init({ once: true, duration: 900 });
+      <div class="port-item reveal">
+        <div class="port-thumb">
+          <img src="/images/yassenjs.png" alt="Personal Portfolio"/>
+          <div class="port-thumb-over"><a href="https://responsive-form-by-nexora.netlify.app/" target="_blank" class="view-live">View Live →</a></div>
+        </div>
+        <div class="port-body">
+          <span class="port-tag">Portfolio</span>
+          <h3>Personal Portfolio</h3>
+          <p>Developer portfolio with smooth animations, project showcase, and responsive contact form.</p>
+          <a href="https://responsive-form-by-nexora.netlify.app/" target="_blank" class="port-link">View Project →</a>
+        </div>
+      </div>
 
-      const hamburger = document.querySelector(".hamburger");
-      const navLinks = document.querySelector(".nav-links");
+      <div class="port-item reveal">
+        <div class="port-thumb">
+          <img src="/images/nexora-site.png" alt="Nexora Website"/>
+          <div class="port-thumb-over"><a href="https://nexora-website-responsive.netlify.app/" target="_blank" class="view-live">View Live →</a></div>
+        </div>
+        <div class="port-body">
+          <span class="port-tag">Business Site</span>
+          <h3>Nexora Website</h3>
+          <p>Multi-page agency website with pixel-perfect responsiveness across all screen sizes.</p>
+          <a href="https://nexora-website-responsive.netlify.app/" target="_blank" class="port-link">View Project →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("show");
-        hamburger.classList.toggle("active");
+<div class="bottom-cta">
+  <h2>Your project could be next</h2>
+  <p>We're currently taking on new clients. Reach out and let's build something you're proud of.</p>
+  <a href="/contact" class="btn btn-primary">Start Your Project →</a>
+</div>
 
-        const links = navLinks.querySelectorAll("li");
-        links.forEach((link, index) => {
-          if (navLinks.classList.contains("show")) {
-            link.style.transitionDelay = `${index * 0.1 + 0.2}s`;
-          } else {
-            link.style.transitionDelay = `0s`;
-          }
-        });
-      });
-    </script>
-  </body>
-</html>
+<%- include('../partials/footer') %>

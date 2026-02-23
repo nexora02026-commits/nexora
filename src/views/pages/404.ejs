@@ -1,0 +1,43 @@
+<%- include('../partials/header') %>
+
+<main class="not-found-page">
+  <!-- Background orbs -->
+  <div class="nf-orb nf-orb-1"></div>
+  <div class="nf-orb nf-orb-2"></div>
+
+  <div class="nf-content">
+    <div class="nf-num">404</div>
+    <div class="nf-icon">🛸</div>
+    <h1 class="nf-title">Lost in the void</h1>
+    <p class="nf-desc">Looks like this page drifted off into deep space. Let's get you back to where the magic happens.</p>
+
+    <div class="nf-btns">
+      <a href="/" class="btn btn-primary btn-lg">← Back to Home</a>
+      <a href="/contact" class="btn btn-ghost btn-lg">Talk to Us</a>
+    </div>
+
+    <!-- Quick nav links -->
+    <div class="nf-links">
+      <a href="/" class="nf-link"><span class="nf-link-icon">🏠</span>Home</a>
+      <a href="/packages" class="nf-link"><span class="nf-link-icon">📦</span>Packages</a>
+      <a href="/portfolio" class="nf-link"><span class="nf-link-icon">💼</span>Portfolio</a>
+      <a href="/about" class="nf-link"><span class="nf-link-icon">💡</span>About</a>
+      <a href="/contact" class="nf-link"><span class="nf-link-icon">✉️</span>Contact</a>
+    </div>
+
+    <p class="nf-redirect">Redirecting to home in <span id="countdown">10</span>s</p>
+  </div>
+</main>
+
+<script>
+  // Auto-redirect countdown
+  let t = 10;
+  const el = document.getElementById('countdown');
+  const interval = setInterval(() => {
+    t--;
+    if (el) el.textContent = t;
+    if (t <= 0) { clearInterval(interval); window.location.href = '/'; }
+  }, 1000);
+</script>
+
+<%- include('../partials/footer') %>
